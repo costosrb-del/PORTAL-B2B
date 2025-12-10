@@ -1,374 +1,247 @@
 // ============================================
-// CONTENIDO DE DEMOSTRACIÓN - ELIMINAR DESPUÉS
+// CONTENIDO DE DEMOSTRACIÓN - ORIGEN BOTÁNICO
 // ============================================
+
+export const DEMO_BANNERS = [
+    {
+        id: 'banner-welcome',
+        title: '¡Lanzamiento Línea Capilar!',
+        description: 'Descubre nuestra nueva fórmula vegana y orgánica. Resultados de salón en casa.',
+        imageUrl: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200&q=80', // Banner wide
+        link: '/marketing',
+        active: true,
+        createdAt: new Date()
+    }
+];
 
 export const DEMO_PRODUCTS = [
     {
-        id: 'demo-prod-1',
-        name: 'Fertilizante Orgánico Premium',
-        description: 'Fertilizante 100% orgánico certificado, ideal para cultivos de alto rendimiento. Rico en nutrientes esenciales y microorganismos beneficiosos.',
-        category: 'Fertilizantes',
+        id: 'kit-keratina-1l',
+        name: 'Kit de Keratina Evolución 1 Litro (8 Personas)',
+        description: 'Nuestro kit de keratina evolución con 2 métodos de aplicación, orgánica y vegana, transforma tu cabello con un alisado sin formol. Fórmula enriquecida con 12 aceites naturales como coco, karité, argán y macadamia. Ideal para uso profesional, rinde hasta 8 aplicaciones.',
+        category: 'Keratinas',
         images: [
-            'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800',
-            'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800'
+            'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80',
+            'https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?w=800&q=80'
         ],
         videos: [
             {
                 type: 'youtube',
-                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-                title: 'Cómo aplicar fertilizante orgánico'
-            }
-        ],
-        manuals: [
-            {
-                name: 'Manual de Aplicación.pdf',
-                url: 'https://example.com/manual-fertilizante.pdf',
-                size: '2.5 MB'
-            }
-        ],
-        specifications: {
-            presentacion: '25kg',
-            rendimiento: '1 hectárea',
-            certificacion: 'Orgánico USDA'
-        }
-    },
-    {
-        id: 'demo-prod-2',
-        name: 'Semillas de Maíz Híbrido',
-        description: 'Semillas de maíz de alta productividad, resistentes a sequía y plagas. Rendimiento superior garantizado.',
-        category: 'Semillas',
-        images: [
-            'https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=800',
-            'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800'
-        ],
-        videos: [
-            {
-                type: 'youtube',
-                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-                title: 'Siembra de maíz híbrido'
-            }
-        ],
-        manuals: [
-            {
-                name: 'Guía de Siembra.pdf',
-                url: 'https://example.com/guia-siembra.pdf',
-                size: '1.8 MB'
-            }
-        ],
-        specifications: {
-            presentacion: '20,000 semillas',
-            ciclo: '120 días',
-            rendimiento: '12 ton/ha'
-        }
-    },
-    {
-        id: 'demo-prod-3',
-        name: 'Herbicida Selectivo Avanzado',
-        description: 'Control efectivo de malezas de hoja ancha sin afectar el cultivo principal. Fórmula de última generación.',
-        category: 'Agroquímicos',
-        images: [
-            'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800'
-        ],
-        videos: [],
-        manuals: [
-            {
-                name: 'Ficha Técnica.pdf',
-                url: 'https://example.com/ficha-herbicida.pdf',
-                size: '1.2 MB'
-            },
-            {
-                name: 'Hoja de Seguridad.pdf',
-                url: 'https://example.com/seguridad-herbicida.pdf',
-                size: '800 KB'
-            }
-        ],
-        specifications: {
-            presentacion: '1 litro',
-            dosis: '2-3 L/ha',
-            aplicacion: 'Postemergencia'
-        }
-    },
-    {
-        id: 'demo-prod-4',
-        name: 'Sistema de Riego por Goteo',
-        description: 'Kit completo de riego por goteo para 1 hectárea. Incluye cintas, conectores y filtros de alta calidad.',
-        category: 'Equipos',
-        images: [
-            'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800',
-            'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800'
-        ],
-        videos: [
-            {
-                type: 'youtube',
-                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-                title: 'Instalación de sistema de riego'
-            }
-        ],
-        manuals: [
-            {
-                name: 'Manual de Instalación.pdf',
-                url: 'https://example.com/manual-riego.pdf',
-                size: '3.5 MB'
-            }
-        ],
-        specifications: {
-            cobertura: '1 hectárea',
-            caudal: '4 L/h por gotero',
-            garantia: '2 años'
-        }
-    },
-    {
-        id: 'demo-prod-5',
-        name: 'Bioestimulante Foliar',
-        description: 'Potenciador de crecimiento con extractos naturales. Mejora la absorción de nutrientes y resistencia al estrés.',
-        category: 'Fertilizantes',
-        images: [
-            'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800'
-        ],
-        videos: [],
-        manuals: [
-            {
-                name: 'Protocolo de Aplicación.pdf',
-                url: 'https://example.com/protocolo-bioestimulante.pdf',
-                size: '1.5 MB'
-            }
-        ],
-        specifications: {
-            presentacion: '500 ml',
-            dosis: '1-2 ml/L',
-            frecuencia: 'Cada 15 días'
-        }
-    },
-    {
-        id: 'demo-prod-6',
-        name: 'Invernadero Modular',
-        description: 'Estructura de invernadero de 100m² con cubierta de polietileno UV. Fácil instalación y alta durabilidad.',
-        category: 'Equipos',
-        images: [
-            'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800',
-            'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800'
-        ],
-        videos: [
-            {
-                type: 'youtube',
-                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-                title: 'Montaje de invernadero modular'
-            }
-        ],
-        manuals: [
-            {
-                name: 'Guía de Montaje.pdf',
-                url: 'https://example.com/montaje-invernadero.pdf',
-                size: '4.2 MB'
-            }
-        ],
-        specifications: {
-            area: '100 m²',
-            altura: '3.5 metros',
-            material: 'Acero galvanizado'
-        }
-    },
-    {
-        id: 'demo-plex-aguacate',
-        name: 'Tratamiento Intensivo Plex de Aguacate',
-        description: 'Fórmula revolucionaria enriquecida con aceite de aguacate orgánico de origen botánico y tecnología Plex avanzada. Diseñada específicamente para reparar enlaces disulfuro rotos en la fibra capilar, hidratar profundamente y devolver la elasticidad y brillo natural al cabello procesado químicamente. Ideal para uso post-decoloración o mantenimiento en casa.',
-        category: 'Tratamiento Capilar',
-        sku: 'AVO-PLEX-500',
-        images: [
-            'https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?w=800&q=80',
-            'https://images.unsplash.com/photo-1571781565023-4d675549704d?w=800&q=80',
-            'https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=800&q=80'
-        ],
-        videos: [
-            {
-                type: 'youtube',
-                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder
                 title: 'Tutorial de Aplicación Paso a Paso'
             }
         ],
         manuals: [
             {
-                name: 'Ficha Técnica Plex.pdf',
-                url: 'https://example.com/ficha-tecnica-plex.pdf',
-                size: '2.8 MB'
-            },
-            {
-                name: 'Protocolo de Uso Profesional.pdf',
-                url: 'https://example.com/protocolo-uso.pdf',
-                size: '1.5 MB'
-            },
-            {
-                name: 'Hoja de Seguridad (MSDS).pdf',
-                url: 'https://example.com/msds-aguacate.pdf',
-                size: '0.8 MB'
+                name: 'Protocolo de Aplicación.pdf',
+                url: '#',
+                size: '2.5 MB'
             }
         ],
         specifications: {
-            'pH': '4.5 - 5.5 (Ácido balanceado)',
-            'Ingrediente Activo': 'Aceite de Persea Gratissima y Keratina',
-            'Tecnología': 'Bond Builder Nano-Plex',
-            'Presentación': '500ml / 250ml',
-            'Uso': 'Profesional y Mantenimiento'
+            'Presentación': '1000 ml',
+            'Rendimiento': '8 Personas',
+            'Tipo': 'Orgánica y Vegana',
+            'Libre de Formol': 'Sí',
+            'Ingredientes': '12 Aceites Naturales'
+        }
+    },
+    {
+        id: 'shampoo-control-grasa',
+        name: 'Shampoo Control Grasa (Romero y Equilibrio)',
+        description: 'Shampoo especializado para control de grasa con extracto de romero. Equilibra el cuero cabelludo, estimula el crecimiento y previene la caída. Sensación fresca y cabello saludable desde la raíz.',
+        category: 'Shampoo',
+        images: [
+            'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=800&q=80'
+        ],
+        videos: [],
+        manuals: [],
+        specifications: {
+            'Presentación': '300 ml',
+            'Ingrediente Principal': 'Romero',
+            'Beneficio': 'Control Grasa y Caída',
+            'Tipo de Cabello': 'Graso / Mixto'
+        }
+    },
+    {
+        id: 'tratamiento-plex',
+        name: 'Tratamiento Intensivo Plex',
+        description: 'Sistema de fortalecimiento y reparación profunda. Ideal para cabellos procesados químicamente (decoloraciones, tintes). Reconstruye los enlaces capilares internos para un cabello resistente y brillante.',
+        category: 'Tratamientos',
+        images: [
+            'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&q=80'
+        ],
+        videos: [],
+        manuals: [
+            {
+                name: 'Ficha Técnica Plex.pdf',
+                url: '#',
+                size: '1.2 MB'
+            }
+        ],
+        specifications: {
+            'Presentación': '250 ml',
+            'Uso': 'Profesional',
+            'Función': 'Reparación de Enlaces',
+            'Tecnología': 'Bond Builder'
+        }
+    },
+    {
+        id: 'perfume-termoprotector',
+        name: 'Perfume Termoprotector Desenredante',
+        description: 'Ritual de seducción para tu cabello. Protege del calor de planchas y secadores, desenreda y deja un aroma irresistible con feromonas. Brillo instantáneo y protección UV.',
+        category: 'Termoprotectores',
+        images: [
+            'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=80'
+        ],
+        videos: [],
+        manuals: [],
+        specifications: {
+            'Presentación': '120 ml',
+            'Beneficio': 'Protección Térmica + Perfume',
+            'Aroma': 'Seducción con Feromonas'
+        }
+    },
+    {
+        id: 'mascarilla-bomba',
+        name: 'Mascarilla Bomba Botánica S.O.S',
+        description: 'Bomba de nutrición para cabellos estancados. Acelera el crecimiento y repara puntas abiertas con el poder de la naturaleza. Restauración intensiva en 5 minutos.',
+        category: 'Mascarillas',
+        images: [
+            'https://images.unsplash.com/photo-1571781565023-40f8d4752c53?w=800&q=80'
+        ],
+        videos: [],
+        manuals: [],
+        specifications: {
+            'Presentación': '300 ml',
+            'Función': 'Nutrición Extrema y Crecimiento',
+            'Ingredientes': 'Mix Botánico'
+        }
+    },
+    {
+        id: 'kit-lina-tejeiro',
+        name: 'Kit Edición Especial Lina Tejeiro',
+        description: 'La rutina favorita de las estrellas. Incluye Shampoo SOS, Mascarilla Reparadora y Termoprotector. El regalo perfecto para un cabello de celebridad.',
+        category: 'Kits',
+        images: [
+            'https://images.unsplash.com/photo-1556228720-1987ba83dd3c?w=800&q=80'
+        ],
+        videos: [],
+        manuals: [],
+        specifications: {
+            'Contenido': '3 Productos',
+            'Edición': 'Limitada',
+            'Beneficio': 'Rutina Completa'
         }
     }
 ];
 
 export const DEMO_NEWS = [
     {
-        id: 'demo-news-1',
-        title: '🎉 Nuevos Productos Disponibles para la Temporada 2024',
-        content: 'Nos complace anunciar el lanzamiento de nuestra nueva línea de fertilizantes orgánicos certificados. Estos productos han sido desarrollados con tecnología de punta para maximizar el rendimiento de tus cultivos mientras cuidas el medio ambiente.',
-        imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200',
+        id: 'news-1',
+        title: '✨ ¡Lanzamiento Oficial: Línea Capilar Vegana!',
+        content: 'Descubre nuestra nueva fórmula revolucionaria sin formol y cruelty-free. Diseñada para dar vida a tu cabello respetando el planeta. Ya disponible en catálogo.',
+        imageUrl: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80',
+        link: '/marketing',
+        isNew: true,
+        createdAt: new Date('2024-12-01')
+    },
+    {
+        id: 'news-2',
+        title: '📦 Novedades en la Logística de Envíos',
+        content: 'Hemos mejorado nuestros tiempos de entrega a nivel nacional. Ahora tus pedidos mayoristas llegan en 24-48 horas a ciudades principales.',
+        imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
         link: '',
         isNew: true,
         createdAt: new Date('2024-11-28')
     },
     {
-        id: 'demo-news-2',
-        title: '📊 Actualización de Lista de Precios - Diciembre 2024',
-        content: 'Hemos actualizado nuestra lista de precios con ofertas especiales para mayoristas. Consulta la sección de Precios para ver los nuevos descuentos por volumen y promociones de fin de año.',
-        imageUrl: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200',
-        link: '/precios',
-        isNew: true,
-        createdAt: new Date('2024-11-25')
-    },
-    {
-        id: 'demo-news-3',
-        title: '🌱 Capacitación Gratuita: Agricultura Sostenible',
-        content: 'Únete a nuestro webinar gratuito sobre técnicas de agricultura sostenible. Aprende de expertos sobre rotación de cultivos, manejo integrado de plagas y conservación de suelos. Fecha: 15 de Diciembre, 10:00 AM.',
-        imageUrl: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1200',
+        id: 'news-3',
+        title: '🎓 Capacitación: Técnicas de Alisado Orgánico',
+        content: 'Accede a nuestro webinar exclusivo para profesionales. Aprende a aplicar correctamente nuestro Kit Evolución 1L para resultados perfectos.',
+        imageUrl: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80',
         link: '',
         isNew: false,
         createdAt: new Date('2024-11-20')
-    },
-    {
-        id: 'demo-news-4',
-        title: '🚚 Mejoras en Logística y Tiempos de Entrega',
-        content: 'Hemos optimizado nuestra red de distribución para garantizar entregas más rápidas. Ahora ofrecemos envío express en pedidos mayores a $500 USD sin costo adicional.',
-        imageUrl: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=1200',
-        link: '',
-        isNew: false,
-        createdAt: new Date('2024-11-15')
     }
 ];
 
 export const DEMO_CONTRACTS = [
     {
-        id: 'demo-contract-1',
-        title: 'Contrato Marco de Distribución 2024',
+        id: 'contract-1',
+        title: 'Contrato Distribución Cosméticos 2025',
         category: 'Distribución',
-        fileName: 'Contrato_Distribucion_2024.pdf',
-        url: 'https://example.com/contrato-distribucion.pdf',
+        fileName: 'Contrato_Distribucion_2025.pdf',
+        url: '#',
         isNew: true,
-        updatedAt: new Date('2024-11-01'),
-        description: 'Términos y condiciones generales para distribuidores mayoristas'
+        updatedAt: new Date('2024-12-01'),
+        description: 'Términos para distribuidores autorizados Origen Botánico'
     },
     {
-        id: 'demo-contract-2',
-        title: 'Acuerdo de Confidencialidad',
+        id: 'contract-2',
+        title: 'Acuerdo de Confidencialidad (NDA)',
         category: 'Legal',
-        fileName: 'NDA_2024.pdf',
-        url: 'https://example.com/nda.pdf',
+        fileName: 'NDA_Origen_Botanico.pdf',
+        url: '#',
         isNew: false,
-        updatedAt: new Date('2024-01-15'),
-        description: 'Acuerdo de no divulgación de información comercial'
-    },
-    {
-        id: 'demo-contract-3',
-        title: 'Política de Devoluciones y Garantías',
-        category: 'Comercial',
-        fileName: 'Politica_Devoluciones.pdf',
-        url: 'https://example.com/devoluciones.pdf',
-        isNew: false,
-        updatedAt: new Date('2024-06-10'),
-        description: 'Procedimientos para devoluciones y reclamos de garantía'
+        updatedAt: new Date('2024-06-15'),
+        description: 'Protección de datos y secretos comerciales'
     }
 ];
 
 export const DEMO_PRICES = [
     {
-        id: 'demo-price-1',
-        title: 'Lista de Precios Diciembre 2024',
-        fileName: 'Precios_Diciembre_2024.pdf',
-        url: 'https://example.com/precios-diciembre.pdf',
+        id: 'price-1',
+        title: 'Lista de Precios Capilar Mayorista - Dic 2024',
+        fileName: 'Precios_Capilar_Dic2024.pdf',
+        url: '#',
         updatedAt: new Date('2024-12-01'),
-        description: 'Precios vigentes con descuentos especiales de fin de año'
-    },
-    {
-        id: 'demo-price-2',
-        title: 'Lista de Precios Noviembre 2024',
-        fileName: 'Precios_Noviembre_2024.pdf',
-        url: 'https://example.com/precios-noviembre.pdf',
-        updatedAt: new Date('2024-11-01'),
-        description: 'Precios del mes anterior'
+        description: 'Precios vigentes para línea capilar y kits'
     }
 ];
 
 export const DEMO_USERS = [
     {
         uid: 'demo-user-1',
-        email: 'distribuidora.norte@example.com',
-        name: 'Distribuidora Norte S.A.',
-        role: 'wholesaler',
+        email: 'admin@portal.com',
+        name: 'Administrador Origen',
+        role: 'admin',
         mustChangePassword: false,
-        password: 'demo123',
-        createdAt: new Date('2024-01-15')
+        password: 'admin123',
+        createdAt: new Date('2024-01-01')
     },
     {
         uid: 'demo-user-2',
-        email: 'agrosur@example.com',
-        name: 'Agrosur Mayorista',
+        email: 'cliente@portal.com',
+        name: 'Cliente Mayorista',
         role: 'wholesaler',
         mustChangePassword: false,
-        password: 'demo123',
-        createdAt: new Date('2024-03-20')
-    },
-    {
-        uid: 'demo-user-3',
-        email: 'campo.verde@example.com',
-        name: 'Campo Verde Distribuciones',
-        role: 'wholesaler',
-        mustChangePassword: true,
-        password: 'temporal123',
-        createdAt: new Date('2024-11-28')
+        password: 'cliente123',
+        createdAt: new Date('2024-01-01')
     }
 ];
 
-// Función para cargar datos de demo
 export const loadDemoData = () => {
-    // Forzar recarga de productos
+    localStorage.setItem('demo_banners', JSON.stringify(DEMO_BANNERS));
     localStorage.setItem('demo_products', JSON.stringify(DEMO_PRODUCTS));
-
-    // Cargar noticias (Forzar recarga)
     localStorage.setItem('demo_news', JSON.stringify(DEMO_NEWS));
-
-    // Cargar contratos (Forzar recarga)
     localStorage.setItem('demo_contracts', JSON.stringify(DEMO_CONTRACTS));
-
-    // Cargar precios (Forzar recarga)
     localStorage.setItem('demo_prices', JSON.stringify(DEMO_PRICES));
 
-    // Agregar usuarios demo
-    const users = JSON.parse(localStorage.getItem('b2b_users') || '[]');
+    // Users logic
+    const currentUsers = JSON.parse(localStorage.getItem('b2b_users') || '[]');
     const demoEmails = DEMO_USERS.map(u => u.email);
-    const filteredUsers = users.filter(u => !demoEmails.includes(u.email));
-    const updatedUsers = [...filteredUsers, ...DEMO_USERS];
-    localStorage.setItem('b2b_users', JSON.stringify(updatedUsers));
+    const filtered = currentUsers.filter(u => !demoEmails.includes(u.email));
+    localStorage.setItem('b2b_users', JSON.stringify([...filtered, ...DEMO_USERS]));
 
-    console.log('✅ Datos de demostración (incluido Plex Aguacate) cargados exitosamente');
+    console.log('✅ Datos de Origen Botánico cargados');
 };
 
-// Función para limpiar datos de demo
 export const clearDemoData = () => {
+    localStorage.removeItem('demo_banners');
     localStorage.removeItem('demo_products');
     localStorage.removeItem('demo_news');
     localStorage.removeItem('demo_contracts');
     localStorage.removeItem('demo_prices');
-
-    const users = JSON.parse(localStorage.getItem('b2b_users') || '[]');
-    const demoEmails = DEMO_USERS.map(u => u.email);
-    const cleanedUsers = users.filter(u => !demoEmails.includes(u.email));
-    localStorage.setItem('b2b_users', JSON.stringify(cleanedUsers));
-
-    console.log('🧹 Datos de demostración eliminados');
+    console.log('🧹 Datos limpiados');
 };

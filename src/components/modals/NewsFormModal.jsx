@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Save, Upload, Loader } from 'lucide-react';
-import { collection, addDoc, updateDoc, doc } from 'firebase/firestore';
-import { db } from '../../firebase';
 import { uploadFile } from '../../services/storageService';
+import { createNews, updateNews } from '../../services/dataService'; // Use dataService
 import Modal from '../ui/Modal';
 import Button from '../ui/Button';
 
@@ -64,7 +63,12 @@ const NewsFormModal = ({ isOpen, onClose, news = null, onSaveSuccess }) => {
 
             // Upload new image if selected
             if (imageFile) {
-                imageUrl = await uploadFile(imageFile, 'news');
+                try {
+                    imageUrl = await uploadFile(imageFile, 'news');
+                } catch (error) {
+                    console.error("Upload failed (simulating):", error);
+                    imageUrl = URL.createObjectURL(imageFile); // Fallback for demo
+                }
             }
 
             const newsData = {
@@ -74,10 +78,10 @@ const NewsFormModal = ({ isOpen, onClose, news = null, onSaveSuccess }) => {
             };
 
             if (news) {
-                await updateDoc(doc(db, 'news', news.id), newsData);
+                await updateNews(news.id, newsData);
             } else {
-                newsData.createdAt = new Date();
-                await addDoc(collection(db, 'news'), newsData);
+                // createNews handles ID and createdAt
+                await createNews(newsData);
             }
 
             if (onSaveSuccess) onSaveSuccess();
@@ -120,7 +124,7 @@ const NewsFormModal = ({ isOpen, onClose, news = null, onSaveSuccess }) => {
                         name="title"
                         value={formData.title}
                         onChange={handleInputChange}
-                        className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-secondary-500"
+                        className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-emerald-500"
                         placeholder="Título de la noticia"
                     />
                 </div>
@@ -134,7 +138,7 @@ const NewsFormModal = ({ isOpen, onClose, news = null, onSaveSuccess }) => {
                         value={formData.content}
                         onChange={handleInputChange}
                         rows={6}
-                        className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-secondary-500"
+                        className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-emerald-500"
                         placeholder="Contenido de la noticia..."
                     />
                 </div>
@@ -148,7 +152,7 @@ const NewsFormModal = ({ isOpen, onClose, news = null, onSaveSuccess }) => {
                         name="link"
                         value={formData.link}
                         onChange={handleInputChange}
-                        className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-secondary-500"
+                        className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-emerald-500"
                         placeholder="https://..."
                     />
                 </div>
@@ -181,7 +185,7 @@ const NewsFormModal = ({ isOpen, onClose, news = null, onSaveSuccess }) => {
                         name="isNew"
                         checked={formData.isNew}
                         onChange={handleInputChange}
-                        className="w-4 h-4 text-secondary-600 rounded focus:ring-secondary-500"
+                        className="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500"
                     />
                     <label htmlFor="isNew" className="text-sm text-neutral-700">
                         Marcar como "Nuevo"

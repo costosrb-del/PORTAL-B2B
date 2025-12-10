@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { getNews } from '../services/dataService'; // Use news instead of resources for "Updates"
+import { getNews, getBanners } from '../services/dataService'; // Use news instead of resources for "Updates"
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const { user } = useAuth();
     const [news, setNews] = useState([]);
+    const [banners, setBanners] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -16,8 +17,9 @@ const Dashboard = () => {
         setLoading(true);
         // Simulate delay
         await new Promise(resolve => setTimeout(resolve, 50));
-        const data = await getNews();
-        setNews(data.slice(0, 3)); // Only show top 3 updates
+        const [newsData, bannersData] = await Promise.all([getNews(), getBanners()]);
+        setNews(newsData.slice(0, 3)); // Only show top 3 updates
+        setBanners(bannersData.filter(b => b.active));
         setLoading(false);
     };
 
@@ -43,6 +45,32 @@ const Dashboard = () => {
                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white opacity-5 blur-3xl"></div>
                 <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 rounded-full bg-emerald-400 opacity-10 blur-2xl"></div>
             </div>
+
+            {/* 1.5 Promotional Banners (Dynamic) */}
+            {banners.length > 0 && (
+                <div className="grid gap-6">
+                    {banners.map((banner) => (
+                        <Link
+                            key={banner.id}
+                            to={banner.link}
+                            className="group relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden shadow-lg block"
+                        >
+                            <img
+                                src={banner.imageUrl}
+                                alt={banner.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                <span className="inline-block px-3 py-1 bg-secondary-500 text-white text-xs font-bold rounded-full w-fit mb-3">
+                                    NUEVO LANZAMIENTO
+                                </span>
+                                <h2 className="text-3xl font-bold text-white mb-2">{banner.title}</h2>
+                                <p className="text-gray-200 max-w-2xl text-lg opacity-90">{banner.description}</p>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            )}
 
             {/* 2. Main Action Grid (Navigation) */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

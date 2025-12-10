@@ -70,13 +70,35 @@ const Sidebar = () => {
                 <div className="flex flex-col gap-2">
                     {/* Social Links as "Settings" or similar extras */}
                     <a
-                        href="https://wa.me/573001234567"
+                        href="https://wa.me/573006618704"
                         target="_blank"
                         className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group"
                     >
                         <span className="material-symbols-outlined group-hover:text-primary transition-colors">chat</span>
                         <span className="text-sm font-medium">Soporte WhatsApp</span>
                     </a>
+
+                    {/* Social Media */}
+                    <div className="grid grid-cols-2 gap-2 mt-2">
+                        <a
+                            href="https://www.instagram.com/origenbotanico.co/?hl=es"
+                            target="_blank"
+                            className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-pink-600 bg-pink-50 hover:bg-pink-100 transition-colors"
+                            title="Instagram"
+                        >
+                            <span className="material-symbols-outlined text-lg">photo_camera</span>
+                            <span className="text-xs font-medium">Insta</span>
+                        </a>
+                        <a
+                            href="https://www.tiktok.com/@origenbotanico?is_from_webapp=1&sender_device=pc"
+                            target="_blank"
+                            className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-gray-800 bg-gray-100 hover:bg-gray-200 transition-colors"
+                            title="TikTok"
+                        >
+                            <span className="material-symbols-outlined text-lg">music_note</span>
+                            <span className="text-xs font-medium">TikTok</span>
+                        </a>
+                    </div>
 
                     <div className="flex items-center gap-3 px-3 py-3 mt-2 border-t border-gray-100 dark:border-gray-800">
                         <div className="h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden flex items-center justify-center text-gray-500">
